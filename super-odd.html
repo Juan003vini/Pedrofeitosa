@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Odd 18x Liberada</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #00FF6A;
+    --green-mid: #00C853;
+    --green-dark: #007A33;
+    --black: #050A05;
+    --black-card: #0C130C;
+    --white: #F0FFF4;
+    --gray: #8A9E8A;
+  }
+
+  html, body {
+    min-height: 100vh;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,106,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,106,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    text-align: center;
+  }
+
+  /* Top badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,255,106,0.08);
+    border: 1px solid rgba(0,255,106,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: blink 1.2s infinite;
+  }
+
+  /* Headline */
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 18vw, 160px);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .headline .accent {
+    color: var(--green);
+    display: block;
+    text-shadow: 0 0 60px rgba(0,255,106,0.4);
+  }
+
+  .sub-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 7vw, 56px);
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+    animation: fadeDown 0.9s ease both;
+  }
+
+  /* Divider */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    margin: 0 auto 2.5rem;
+    animation: fadeDown 0.95s ease both;
+  }
+
+  /* Description */
+  .desc {
+    font-size: clamp(15px, 3vw, 18px);
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    animation: fadeDown 1s ease both;
+  }
+
+  .desc strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* CTA Button */
+  .cta-wrap {
+    animation: fadeDown 1.1s ease both;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--green);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    animation: pulse-btn 2s infinite;
+    transition: transform 0.15s;
+  }
+
+  .cta:hover { transform: scale(1.04); }
+  .cta:active { transform: scale(0.97); }
+
+  .cta-arrow {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* Trust line */
+  .trust {
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    animation: fadeDown 1.2s ease both;
+  }
+
+  .trust span {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* Glow orb background */
+  .orb {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,200,83,0.12) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    animation: orbPulse 4s ease-in-out infinite;
+  }
+
+  /* Animations */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  @keyframes pulse-btn {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(0,255,106,0.5), 0 0 30px rgba(0,255,106,0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 16px rgba(0,255,106,0), 0 0 50px rgba(0,255,106,0.5);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  }
+
+  @media (max-width: 480px) {
+    .cta { padding: 16px 32px; font-size: 15px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb"></div>
+
+<div class="wrap">
+
+  <div class="badge">
+    <span class="badge-dot"></span>
+    Disponível agora
+  </div>
+
+  <p class="eyebrow">Copa do Mundo 2026</p>
+
+  <h1 class="headline">
+    Super Odd
+    <span class="accent">18x</span>
+  </h1>
+
+  <p class="sub-headline">Liberada agora</p>
+
+  <div class="divider"></div>
+
+  <p class="desc">
+    A odd mais alta do jogo acabou de ser liberada.<br>
+    <strong>Só quem pegar agora garante.</strong><br>
+    Aproveita antes de expirar.
+  </p>
+
+  <div class="cta-wrap">
+    <a href="#" class="cta">
+      Quero a Super Odd agora
+      <span class="cta-arrow">→</span>
+    </a>
+  </div>
+
+  <p class="trust">🔒 Acesso seguro &nbsp;·&nbsp; <span>Odd por tempo limitado</span> &nbsp;·&nbsp; Acesso imediato</p>
+
+</div>
+
+</body>
+</html>
