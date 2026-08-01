@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Super Cotação 13x — Santos</title>
+<title>Super Cotação Liberada</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@600;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@600;700;800;900&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   html, body {
     min-height: 100vh;
     background: #050A05;
@@ -15,106 +16,79 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
   }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,255,106,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,255,106,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-  }
-  .orb {
-    position: fixed;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,200,83,0.15) 0%, transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    animation: orbPulse 4s ease-in-out infinite;
-  }
+
   .wrap {
-    position: relative;
-    z-index: 1;
     text-align: center;
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.75rem;
+    max-width: 480px;
+    width: 100%;
   }
+
   .badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: rgba(0,255,106,0.08);
-    border: 1px solid rgba(0,255,106,0.3);
+    border: 1px solid rgba(0,255,106,0.25);
     border-radius: 100px;
     padding: 6px 18px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     color: #00FF6A;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+
   .badge-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
-    background: #00FF6A;
+    background: #22c55e;
     animation: blink 1.2s infinite;
   }
+
   .headline {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(56px, 16vw, 130px);
-    line-height: 0.9;
+    font-size: clamp(52px, 15vw, 110px);
+    line-height: 0.95;
+    color: #F0FFF4;
     letter-spacing: 0.02em;
   }
+
   .headline .green {
-    color: #00FF6A;
-    display: block;
-    text-shadow: 0 0 60px rgba(0,255,106,0.5);
+    color: #16a34a;
   }
-  .odds-box {
-    background: rgba(0,255,106,0.06);
-    border: 1px solid rgba(0,255,106,0.2);
-    border-radius: 12px;
-    padding: 1.25rem 2.5rem;
+
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: #22c55e;
+    border-radius: 2px;
   }
-  .odds-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: #00FF6A;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
+
+  .desc {
+    font-size: clamp(15px, 3.5vw, 17px);
+    color: #8A9E8A;
+    line-height: 1.7;
   }
-  .odds-value {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 14vw, 100px);
-    color: #00FF6A;
-    line-height: 1;
-    text-shadow: 0 0 40px rgba(0,255,106,0.6);
-  }
-  .match {
-    font-size: clamp(14px, 3.5vw, 20px);
+
+  .desc strong {
+    color: #F0FFF4;
     font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    opacity: 0.9;
   }
+
   .cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: #00FF6A;
-    color: #050A05;
+    background: #16a34a;
+    color: #fff;
     font-family: 'Inter', sans-serif;
-    font-size: clamp(15px, 4vw, 18px);
+    font-size: clamp(15px, 4vw, 17px);
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -123,40 +97,51 @@
     text-decoration: none;
     animation: pulsebtn 2s infinite;
     transition: transform 0.15s;
+    width: 100%;
+    justify-content: center;
   }
-  .cta:hover { transform: scale(1.04); }
+
+  .cta:hover { transform: scale(1.03); }
   .cta:active { transform: scale(0.97); }
+
   .trust {
     font-size: 12px;
     color: #5A7A5A;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
+
   .trust span { color: #00FF6A; font-weight: 600; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-  @keyframes orbPulse { 0%,100%{opacity:0.6;transform:translate(-50%,-50%) scale(1)} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.2)} }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
   @keyframes pulsebtn {
-    0%,100%{ box-shadow: 0 0 0 0 rgba(0,255,106,0.5), 0 0 30px rgba(0,255,106,0.3); }
-    50%{ box-shadow: 0 0 0 14px rgba(0,255,106,0), 0 0 50px rgba(0,255,106,0.5); }
+    0%,100%{ box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
+    50%{ box-shadow: 0 0 0 14px rgba(22,163,74,0); }
   }
 </style>
 </head>
 <body>
-<div class="orb"></div>
 <div class="wrap">
   <div class="badge"><span class="badge-dot"></span>Disponível agora</div>
+
   <h1 class="headline">
     Super<br>
-    <span class="green">Cotação</span>
+    <span class="green">Cotação</span><br>
+    Liberada
   </h1>
-  <div class="odds-box">
-    <div class="odds-label">Odd liberada</div>
-    <div class="odds-value">13x</div>
-  </div>
-  <p class="match">Santos vencer a partida</p>
-  <a href="https://go.aff.jogodeouro.bet.br/ztlfh52n?aposta=WDXG8BGWTEE" class="cta" target="_blank">
-    Pegar agora →
+
+  <div class="divider"></div>
+
+  <p class="desc">
+    A melhor cotação do jogo acabou de ser liberada.<br>
+    <strong>Garante a sua antes de encerrar.</strong>
+  </p>
+
+  <a href="https://go.aff.jogodeouro.bet.br/ztlfh52n?aposta=BCJ0CAUY113" class="cta" target="_blank">
+    Quero a Super Cotação →
   </a>
-  <p class="trust">🔒 Acesso seguro &nbsp;·&nbsp; <span>Cotação por tempo limitado</span></p>
+
+  <p class="trust">🔒 Acesso seguro &nbsp;·&nbsp; <span>Por tempo limitado</span></p>
 </div>
 </body>
 </html>
