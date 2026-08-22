@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Super Cotação Liberada</title>
-<!-- v2 -->
+<title>Bilhete Liberado</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
     min-height: 100vh;
     background: #050A05;
-    color: #F0FFF4;
     font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
@@ -21,12 +19,12 @@
 
   .wrap {
     text-align: center;
-    padding: 2.5rem 1.5rem;
+    padding: 3rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.75rem;
-    max-width: 480px;
+    gap: 2rem;
+    max-width: 400px;
     width: 100%;
   }
 
@@ -35,7 +33,7 @@
     align-items: center;
     gap: 8px;
     background: rgba(0,255,106,0.08);
-    border: 1px solid rgba(0,255,106,0.25);
+    border: 1px solid rgba(0,255,106,0.2);
     border-radius: 100px;
     padding: 6px 18px;
     font-size: 12px;
@@ -48,58 +46,48 @@
   .badge-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
-    background: #22c55e;
+    background: #00FF6A;
     animation: blink 1.2s infinite;
   }
 
   .headline {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 15vw, 110px);
-    line-height: 0.95;
+    font-size: clamp(60px, 18vw, 120px);
+    line-height: 0.9;
     color: #F0FFF4;
-    letter-spacing: 0.02em;
   }
 
   .headline .green {
-    color: #16a34a;
-  }
-
-  .divider {
-    width: 48px;
-    height: 3px;
-    background: #22c55e;
-    border-radius: 2px;
+    color: #00FF6A;
+    display: block;
+    text-shadow: 0 0 50px rgba(0,255,106,0.4);
   }
 
   .desc {
-    font-size: clamp(15px, 3.5vw, 17px);
-    color: #8A9E8A;
+    font-size: 15px;
+    color: #5A7A5A;
     line-height: 1.7;
   }
 
-  .desc strong {
-    color: #F0FFF4;
-    font-weight: 700;
-  }
+  .desc strong { color: #F0FFF4; }
 
   .cta {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background: #16a34a;
     color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(15px, 4vw, 17px);
+    font-size: 15px;
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 18px 48px;
+    padding: 18px 32px;
     border-radius: 8px;
     text-decoration: none;
+    width: 100%;
     animation: pulsebtn 2s infinite;
     transition: transform 0.15s;
-    width: 100%;
-    justify-content: center;
   }
 
   .cta:hover { transform: scale(1.03); }
@@ -107,42 +95,36 @@
 
   .trust {
     font-size: 12px;
-    color: #5A7A5A;
-    letter-spacing: 0.04em;
+    color: #3A5A3A;
   }
 
   .trust span { color: #00FF6A; font-weight: 600; }
 
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
   @keyframes pulsebtn {
-    0%,100%{ box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
+    0%,100%{ box-shadow: 0 0 0 0 rgba(22,163,74,0.5); }
     50%{ box-shadow: 0 0 0 14px rgba(22,163,74,0); }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <div class="badge"><span class="badge-dot"></span>Disponível agora</div>
 
   <h1 class="headline">
-    Super<br>
-    <span class="green">Cotação</span><br>
-    Liberada
+    Bilhete
+    <span class="green">Liberado</span>
   </h1>
 
-  <div class="divider"></div>
+  <p class="desc"><strong>Acessa agora</strong> e garante<br>antes de encerrar.</p>
 
-  <p class="desc">
-    A melhor cotação do jogo acabou de ser liberada.<br>
-    <strong>Garante a sua antes de encerrar.</strong>
-  </p>
-
-  <a href="https://go.aff.ginga.bet.br/kl4q9163?shareCode=P5XMSVOMD2J" class="cta" target="_blank">
-    Quero a Super Cotação →
+  <a href="https://go.aff.ginga.bet.br/kl4q9163?shareCode=RV7H5KA1T7U" class="cta" target="_blank">
+    Acessar agora →
   </a>
 
   <p class="trust">🔒 Acesso seguro &nbsp;·&nbsp; <span>Por tempo limitado</span></p>
+
 </div>
 </body>
 </html>
